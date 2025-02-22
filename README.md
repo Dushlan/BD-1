@@ -23,3 +23,25 @@ SELECT * FROM orders WHERE STATUS IN('cancelled', 'new')
 SELECT id, sum FROM orders WHERE products_count > 3;
 
 ![image](https://github.com/user-attachments/assets/906266e5-b8aa-4b9f-906b-2726be0de2b5)
+
+1) Выберите из таблицы orders 3 самых дешевых заказа за всё время.
+Данные нужно отсортировать в порядке убывания цены.
+Отмененные заказы не учитывайте.
+
+![image](https://github.com/user-attachments/assets/12f5e71b-2f89-4f61-b995-deb5cfa40a7d)
+
+SELECT * FROM orders WHERE STATUS != 'cancelled' ORDER BY sum ASC LIMIT 3
+
+2) Выберите из таблицы orders 2 самых дорогих заказов за всё время.
+Данные нужно отсортировать в порядке убывания цены.
+Отмененные заказы не учитывайте.
+
+![image](https://github.com/user-attachments/assets/28beb440-e205-4cd9-8590-1af4974019c4)
+
+SELECT * FROM orders WHERE STATUS != 'cancelled' ORDER BY SUM desc LIMIT 2
+
+3) Добавьте в таблицу orders данные о новом заказе стоимостью 8000 рублей. В заказе 4 товара (products).
+
+   ![image](https://github.com/user-attachments/assets/98060558-228f-40af-96c8-743e70c3f4d1)
+
+   INSERT INTO orders (id, products, sum) VALUES (6, 4, 8000)
